@@ -4,6 +4,7 @@ import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import EditorialSplit from "@/components/EditorialSplit";
 import DayNightMenu from "@/components/DayNightMenu";
 import IGGrid from "@/components/IGGrid";
@@ -21,6 +22,7 @@ const Index = () => {
         <div className={`min-h-screen bg-background ${loaded ? "" : "invisible"}`}>
           <Navbar />
           <Hero />
+          <Marquee />
           <EditorialSplit />
           <DayNightMenu />
           <IGGrid />
