@@ -9,12 +9,12 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "1280px",
       },
     },
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
@@ -28,8 +28,8 @@ export default {
           DEFAULT: "hsl(var(--forest))",
           light: "hsl(var(--forest-light))",
         },
-        "warm-brown": "hsl(var(--warm-brown))",
-        gold: "hsl(var(--gold))",
+        "warm-stone": "hsl(var(--warm-stone))",
+        "slate-text": "hsl(var(--slate-text))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
