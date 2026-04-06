@@ -49,11 +49,12 @@ const IGGrid = () => (
       </div>
     </Reveal>
 
-    {/* Organic fade-out: photos melt into the dark footer */}
+    {/* Organic dissolve: photos melt into the dark footer */}
     <div
-      className="h-32 md:h-48 -mt-32 md:-mt-48 relative z-10 pointer-events-none"
+      className="h-48 md:h-64 -mt-48 md:-mt-64 relative z-10 pointer-events-none"
       style={{
-        background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 60%, #0A1A12 100%)",
+        background:
+          "linear-gradient(to bottom, transparent 0%, #0A1A12 100%)",
       }}
     />
   </section>

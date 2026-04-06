@@ -22,7 +22,7 @@ const Index = () => {
         <div className={`min-h-screen bg-background ${loaded ? "" : "invisible"}`}>
           <Navbar />
           <Hero />
-          <Marquee />
+          
           <EditorialSplit />
           <DayNightMenu />
           <IGGrid />
