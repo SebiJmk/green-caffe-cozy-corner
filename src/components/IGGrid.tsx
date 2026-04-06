@@ -1,14 +1,22 @@
 import Reveal from "@/components/Reveal";
+import ig1 from "@/assets/ig-1.jpg";
+import ig2 from "@/assets/ig-2.jpg";
+import ig3 from "@/assets/ig-3.jpg";
+import ig4 from "@/assets/ig-4.jpg";
+import ig5 from "@/assets/ig-5.jpg";
+import ig6 from "@/assets/ig-6.jpg";
+import ig7 from "@/assets/ig-7.jpg";
+import ig8 from "@/assets/ig-8.jpg";
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600", alt: "Latte art close-up" },
-  { src: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=600", alt: "Wine glass with red wine" },
-  { src: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600", alt: "Espresso pour" },
-  { src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=600", alt: "Cozy cafe interior with greenery" },
-  { src: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600", alt: "Coffee beans macro texture" },
-  { src: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&q=80&w=600", alt: "Wine being poured into glass" },
-  { src: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600", alt: "Latte art detail" },
-  { src: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=600", alt: "Red wine close-up" },
+  { src: ig1, alt: "Latte art close-up" },
+  { src: ig2, alt: "Wine glass with red wine" },
+  { src: ig3, alt: "V60 pour over setup" },
+  { src: ig4, alt: "Botanical cafe interior" },
+  { src: ig5, alt: "Coffee beans macro" },
+  { src: ig6, alt: "Wine being poured" },
+  { src: ig7, alt: "Espresso on travertine" },
+  { src: ig8, alt: "Wine cellar with candles" },
 ];
 
 const IGGrid = () => (
@@ -32,6 +40,8 @@ const IGGrid = () => (
               src={img.src}
               alt={img.alt}
               loading="lazy"
+              width={768}
+              height={768}
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </a>
