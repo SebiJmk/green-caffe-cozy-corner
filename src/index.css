@@ -65,13 +65,3 @@
   }
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 20s linear infinite;
-}
-
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
