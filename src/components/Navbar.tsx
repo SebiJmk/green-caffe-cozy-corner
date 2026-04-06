@@ -4,79 +4,80 @@ import logo from "@/assets/green-caffe-logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "The Vibe", href: "#vibe" },
-  { label: "Location", href: "#location" },
+  { label: "Vibe", href: "#vibe" },
+  { label: "Locate", href: "#location" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastY, setLastY] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setVisible(y < 100 || y < lastY);
+      setLastY(y);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [lastY]);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-background"
+      className={`floating-pill transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between h-20 px-6 md:px-8">
-        {/* Logo */}
-        <a href="#home" className="flex items-center gap-3 shrink-0">
+      <div className="flex items-center gap-2 md:gap-6">
+        {/* Logo badge */}
+        <a href="#home" className="shrink-0">
           <img
             src={logo}
-            alt="Green Caffe logo"
-            className="h-12 w-12 object-contain rounded-full"
+            alt="Green Caffe"
+            className="h-9 w-9 rounded-full object-contain"
           />
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="nav-link">
+            <a key={l.href} href={l.href} className="nav-link-dark">
               {l.label}
             </a>
           ))}
-          <a href="#location" className="btn-cta ml-2">
-            Find Us
-          </a>
         </div>
 
-        {/* Mobile toggle */}
+        <a href="#location" className="hidden md:inline-flex btn-find ml-2">
+          Find Us
+        </a>
+
+        {/* Mobile */}
         <button
-          className="md:hidden text-foreground/70"
+          className="md:hidden text-neutral-600 ml-2"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label="Menu"
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-background border-t border-border px-6 pb-6 pt-2">
-          <ul className="flex flex-col gap-5">
-            {navLinks.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="nav-link text-base"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a href="#location" onClick={() => setOpen(false)} className="btn-cta inline-block text-center">
-                Find Us
-              </a>
-            </li>
-          </ul>
+        <div className="md:hidden mt-3 pt-3 border-t border-neutral-200 flex flex-col gap-3 pb-1">
+          {navLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="nav-link-dark text-sm"
+            >
+              {l.label}
+            </a>
+          ))}
+          <a href="#location" onClick={() => setOpen(false)} className="btn-find text-center mt-1">
+            Find Us
+          </a>
         </div>
       )}
     </nav>
