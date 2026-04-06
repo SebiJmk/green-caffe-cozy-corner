@@ -1,128 +1,117 @@
 import Reveal from "@/components/Reveal";
-import { MapPin, Clock, Instagram, ArrowUpRight, Trees } from "lucide-react";
+import { MapPin, Instagram, Facebook } from "lucide-react";
 import parkImg from "@/assets/cismigiu-park.jpg";
 
 const Footer = () => {
   return (
     <>
-      {/* Location */}
-      <section id="location" className="py-28 md:py-36 bg-sage">
+      {/* Location preview — light */}
+      <section id="location" className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-6 md:px-8">
           <Reveal>
-            <span className="section-label">Location</span>
-            <h2 className="section-heading text-3xl md:text-5xl lg:text-[3.5rem] mb-16 max-w-lg">
-              Find us next to
-              <br />
-              <em className="italic text-primary">Cișmigiu Gardens</em>
-            </h2>
+            <div className="text-center mb-16">
+              <span className="section-label">Locație</span>
+              <h2 className="section-heading text-3xl md:text-5xl lg:text-[3.25rem]">
+                Lângă <em className="italic text-primary">Grădina Cișmigiu</em>
+              </h2>
+            </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-start">
-            {/* Info card */}
-            <Reveal className="md:col-span-5" direction="left">
-              <div className="card-premium p-8 md:p-10 space-y-8">
-                {/* Address */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center shrink-0 mt-0.5">
-                    <MapPin size={16} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-primary font-medium mb-2">
-                      Address
-                    </p>
-                    <p className="font-serif text-lg text-foreground leading-relaxed">
-                      Bulevardul Regina Elisabeta,
-                      <br />
-                      nr. 59, Bucharest, Romania 050014
-                    </p>
-                  </div>
+          <Reveal>
+            <div className="card-premium overflow-hidden max-w-4xl mx-auto">
+              <div className="relative aspect-[21/9] overflow-hidden">
+                <img
+                  src={parkImg}
+                  alt="Grădina Cișmigiu, copaci și lumină naturală"
+                  loading="lazy"
+                  width={1200}
+                  height={800}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/50 to-transparent" />
+                <div className="absolute bottom-5 left-6 flex items-center gap-2">
+                  <MapPin size={16} className="text-primary" />
+                  <p className="font-serif text-lg text-foreground">La doi pași de Cișmigiu</p>
                 </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-                {/* Separator */}
-                <div className="h-px bg-border" />
+      {/* Dark footer */}
+      <footer className="bg-footer-bg py-16 md:py-20">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-16">
+            {/* Col 1 — Address */}
+            <div>
+              <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-footer-muted mb-5 font-medium">
+                Adresă
+              </p>
+              <p className="font-serif text-xl md:text-2xl text-footer-fg leading-relaxed mb-2">
+                Bulevardul Regina Elisabeta,
+                <br />
+                nr. 59
+              </p>
+              <p className="font-sans text-sm text-footer-muted">
+                Bucharest, Romania 050014
+              </p>
+            </div>
 
-                {/* Hours */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center shrink-0 mt-0.5">
-                    <Clock size={16} className="text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-primary font-medium mb-2">
-                      Hours
-                    </p>
-                    <div className="font-sans text-sm text-muted-foreground space-y-1">
-                      <p>Mon – Fri: 7:00 – 23:00</p>
-                      <p>Sat – Sun: 9:00 – 00:00</p>
-                    </div>
-                  </div>
+            {/* Col 2 — Map */}
+            <div className="rounded-xl overflow-hidden aspect-[4/3] md:aspect-auto md:h-full min-h-[200px]">
+              <iframe
+                title="Green Caffe location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.0!2d26.0917!3d44.4352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBulevardul+Regina+Elisabeta+59%2C+Bucharest!5e0!3m2!1sen!2sro!4v1700000000000"
+                className="w-full h-full border-0 rounded-xl opacity-90"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+
+            {/* Col 3 — Social */}
+            <div className="flex flex-col items-start md:items-end justify-between">
+              <div>
+                <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-footer-muted mb-5 font-medium md:text-right">
+                  Social
+                </p>
+                <div className="flex items-center gap-5 mb-6">
+                  <a
+                    href="https://instagram.com/greencaffe.bucharest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full border border-footer-muted/30 flex items-center justify-center text-footer-fg hover:text-primary hover:border-primary transition-colors duration-300"
+                    aria-label="Instagram"
+                  >
+                    <Instagram size={22} />
+                  </a>
+                  <a
+                    href="#"
+                    className="w-12 h-12 rounded-full border border-footer-muted/30 flex items-center justify-center text-footer-fg hover:text-primary hover:border-primary transition-colors duration-300"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={22} />
+                  </a>
                 </div>
-
-                {/* Separator */}
-                <div className="h-px bg-border" />
-
-                {/* Instagram */}
                 <a
                   href="https://instagram.com/greencaffe.bucharest"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between hover:bg-sage/60 -mx-3 px-3 py-2 rounded-xl transition-colors duration-300"
+                  className="font-serif text-lg text-footer-fg hover:text-primary transition-colors duration-300"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/8 flex items-center justify-center shrink-0">
-                      <Instagram size={16} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-primary font-medium mb-0.5">
-                        Instagram
-                      </p>
-                      <p className="font-sans text-sm text-foreground font-medium">
-                        @greencaffe.bucharest
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowUpRight
-                    size={16}
-                    className="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
-                  />
+                  @greencaffe.bucharest
                 </a>
               </div>
-            </Reveal>
-
-            {/* Park image card */}
-            <Reveal className="md:col-span-7" direction="right">
-              <div className="card-premium overflow-hidden">
-                <div className="relative aspect-[3/2] overflow-hidden">
-                  <img
-                    src={parkImg}
-                    alt="Cișmigiu Gardens, lush green trees and sunlight"
-                    loading="lazy"
-                    width={1200}
-                    height={800}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 flex items-center gap-3">
-                    <Trees size={18} className="text-primary" />
-                    <p className="font-serif text-lg text-foreground">
-                      Steps from Grădina Cișmigiu
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="py-10 bg-background">
-        <div className="container mx-auto px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs font-sans text-muted-foreground">
-            © 2024 Green Caffe. All rights reserved.
-          </p>
-          <p className="text-xs font-sans text-muted-foreground/50">
-            Made with ❤️ by Bit & Form
-          </p>
+          {/* Bottom bar */}
+          <div className="pt-8 border-t border-footer-muted/20 text-center">
+            <p className="text-xs font-sans text-footer-muted">
+              © 2026 Green Caffe. Made with ❤️ by Bit & Form
+            </p>
+          </div>
         </div>
       </footer>
     </>
