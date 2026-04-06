@@ -107,7 +107,7 @@ const SiteFooter = () => {
                       <Phone size={16} className="text-[#F4F1EA]/50" />
                     </div>
                     <span className="font-serif text-xl sm:text-2xl text-[#F4F1EA]/80 group-hover:text-[#F4F1EA] transition-colors duration-500">
-                      +40 [TELEFON]
+                      0723 508 244
                     </span>
                   </div>
                 </ActionTile>
