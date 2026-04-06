@@ -2,76 +2,72 @@ import Reveal from "@/components/Reveal";
 import { Instagram, Facebook } from "lucide-react";
 
 const SiteFooter = () => (
-  <footer id="footer" className="pt-24 md:pt-32 pb-12 border-t border-border">
-    <div className="max-w-7xl mx-auto px-6 md:px-10">
-      {/* Oversized title */}
+  <footer id="footer" className="bg-[#0A1A12] text-[#F4F1EA]">
+    {/* Grand Sign-off */}
+    <div className="pt-32 pb-16">
       <Reveal>
-        <h2 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] font-normal text-charcoal leading-[0.9] tracking-tight mb-20 md:mb-28">
-          GREEN
-          <br />
-          CAFFE
-        </h2>
+        <p className="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center text-[#F4F1EA]/80 leading-tight">
+          A place for the soul.
+        </p>
       </Reveal>
+    </div>
 
-      {/* 3-column grid */}
-      <Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {/* Address */}
-          <div>
-            <p className="label-editorial mb-4">Adresă</p>
-            <p className="font-serif text-lg text-charcoal leading-relaxed">
-              Bulevardul Regina Elisabeta,
-              <br />
-              nr. 59
-            </p>
-            <p className="font-sans text-xs text-muted-foreground tracking-wide mt-1">
-              Bucharest, Romania 050014
-            </p>
-          </div>
+    {/* Hairline Divider */}
+    <div className="border-t border-[#F4F1EA]/20 mx-auto w-[90%]" />
 
-          {/* Social */}
-          <div>
-            <p className="label-editorial mb-4">Social</p>
-            <div className="flex items-center gap-4 mb-4">
-              <a
-                href="https://instagram.com/greencaffe.bucharest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} />
-              </a>
-            </div>
+    {/* Precision Grid */}
+    <Reveal>
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-12 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        {/* Location */}
+        <div>
+          <p className="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[#F4F1EA]/50 mb-4">
+            Visit Us
+          </p>
+          <p className="font-sans text-sm tracking-wide text-[#F4F1EA]/70 leading-relaxed">
+            Bulevardul Regina Elisabeta, nr. 59,
+            <br />
+            Bucharest, Romania 050014
+          </p>
+        </div>
+
+        {/* Social */}
+        <div className="md:text-center">
+          <p className="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[#F4F1EA]/50 mb-4">
+            Follow the Journey
+          </p>
+          <div className="flex items-center gap-3 md:justify-center">
             <a
               href="https://instagram.com/greencaffe.bucharest"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide"
+              className="flex items-center gap-2 text-[#F4F1EA]/70 hover:text-[#F4F1EA] transition-opacity duration-300"
             >
-              @greencaffe.bucharest
+              <Instagram size={16} />
+              <span className="font-sans text-sm tracking-wide">@greencaffe.bucharest</span>
             </a>
           </div>
-
-          {/* Legal */}
-          <div className="md:text-right">
-            <p className="label-editorial mb-4">Legal</p>
-            <p className="font-sans text-xs text-muted-foreground tracking-wide leading-relaxed">
-              © 2026 Green Caffe.
-              <br />
-              Made with ❤️ by Bit & Form
-            </p>
-          </div>
+          <a
+            href="#"
+            className="inline-block mt-3 text-[#F4F1EA]/40 hover:text-[#F4F1EA]/70 transition-opacity duration-300"
+            aria-label="Facebook"
+          >
+            <Facebook size={16} />
+          </a>
         </div>
-      </Reveal>
-    </div>
+
+        {/* Signature */}
+        <div className="md:text-right">
+          <p className="font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[#F4F1EA]/50 mb-4">
+            &nbsp;
+          </p>
+          <p className="font-sans text-sm tracking-wide text-[#F4F1EA]/40 leading-relaxed">
+            © 2026 Green Caffe.
+            <br />
+            Made with ❤️ by Bit & Form
+          </p>
+        </div>
+      </div>
+    </Reveal>
   </footer>
 );
 
