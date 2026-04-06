@@ -1,14 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, type Easing } from "framer-motion";
 import { Coffee, Wine } from "lucide-react";
 import coffeeImg from "@/assets/coffee-vibe.jpg";
 import wineImg from "@/assets/wine-vibe.jpg";
 
+const ease: Easing = "easeOut";
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.2, ease: "easeOut" },
+    transition: { duration: 0.7, delay: i * 0.2, ease },
   }),
 };
 
