@@ -8,12 +8,12 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: { "2xl": "1200px" },
+      screens: { "2xl": "1280px" },
     },
     extend: {
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -21,13 +21,9 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        travertine: "hsl(var(--travertine))",
-        sage: "hsl(var(--sage))",
-        forest: { DEFAULT: "hsl(var(--forest))", light: "hsl(var(--forest-light))" },
-        charcoal: "hsl(var(--charcoal))",
-        "footer-bg": "hsl(var(--footer-bg))",
-        "footer-fg": "hsl(var(--footer-fg))",
-        "footer-muted": "hsl(var(--footer-muted))",
+        midnight: "hsl(var(--midnight))",
+        forest: { DEFAULT: "hsl(var(--forest))", glow: "hsl(var(--forest-glow))" },
+        brass: { DEFAULT: "hsl(var(--brass))", light: "hsl(var(--brass-light))" },
         primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" },
         secondary: { DEFAULT: "hsl(var(--secondary))", foreground: "hsl(var(--secondary-foreground))" },
         destructive: { DEFAULT: "hsl(var(--destructive))", foreground: "hsl(var(--destructive-foreground))" },
