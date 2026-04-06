@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import MagneticWrap from "@/components/MagneticWrap";
 import { Instagram, Facebook } from "lucide-react";
 
 const SiteFooter = () => (
@@ -36,23 +37,27 @@ const SiteFooter = () => (
             Follow the Journey
           </p>
           <div className="flex items-center gap-3 md:justify-center">
-            <a
-              href="https://instagram.com/greencaffe.bucharest"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[#F4F1EA]/70 hover:text-[#F4F1EA] transition-opacity duration-300"
-            >
-              <Instagram size={16} />
-              <span className="font-sans text-sm tracking-wide">@greencaffe.bucharest</span>
-            </a>
+            <MagneticWrap>
+              <a
+                href="https://instagram.com/greencaffe.bucharest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#F4F1EA]/70 hover:text-[#F4F1EA] transition-opacity duration-300"
+              >
+                <Instagram size={16} />
+                <span className="font-sans text-sm tracking-wide">@greencaffe.bucharest</span>
+              </a>
+            </MagneticWrap>
           </div>
-          <a
-            href="#"
-            className="inline-block mt-3 text-[#F4F1EA]/40 hover:text-[#F4F1EA]/70 transition-opacity duration-300"
-            aria-label="Facebook"
-          >
-            <Facebook size={16} />
-          </a>
+          <MagneticWrap>
+            <a
+              href="#"
+              className="inline-block mt-3 text-[#F4F1EA]/40 hover:text-[#F4F1EA]/70 transition-opacity duration-300"
+              aria-label="Facebook"
+            >
+              <Facebook size={16} />
+            </a>
+          </MagneticWrap>
         </div>
 
         {/* Signature */}
