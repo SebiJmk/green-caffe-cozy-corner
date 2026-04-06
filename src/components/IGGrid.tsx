@@ -1,5 +1,15 @@
 import Reveal from "@/components/Reveal";
-import { Camera } from "lucide-react";
+
+const images = [
+  { src: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600", alt: "Latte art close-up" },
+  { src: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=600", alt: "Wine glass with red wine" },
+  { src: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600", alt: "Espresso pour" },
+  { src: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=600", alt: "Cozy cafe interior with greenery" },
+  { src: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600", alt: "Coffee beans macro texture" },
+  { src: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&q=80&w=600", alt: "Wine being poured into glass" },
+  { src: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600", alt: "Latte art detail" },
+  { src: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=600", alt: "Red wine close-up" },
+];
 
 const IGGrid = () => (
   <section className="py-24 md:py-32">
@@ -8,24 +18,24 @@ const IGGrid = () => (
     </Reveal>
 
     <Reveal>
-      <div className="relative">
-        {/* Floating badge */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 bg-background/90 backdrop-blur-sm px-5 py-2 rounded-full border border-border">
-          <p className="text-[9px] font-sans font-medium uppercase tracking-[0.25em] text-primary whitespace-nowrap">
-            IG Feed Integration Ready
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div
-              key={i}
-              className="aspect-square bg-foreground/[0.03] flex items-center justify-center border-[0.5px] border-foreground/[0.04] hover:bg-foreground/[0.05] transition-colors duration-300"
-            >
-              <Camera size={20} className="text-foreground/10" />
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+        {images.map((img, i) => (
+          <a
+            key={i}
+            href="https://www.instagram.com/greencaffe.bucharest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="aspect-square overflow-hidden group"
+            data-cursor-hover
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </a>
+        ))}
       </div>
     </Reveal>
   </section>
