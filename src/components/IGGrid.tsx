@@ -51,11 +51,14 @@ const IGGrid = () => (
 
     {/* Organic fade-out: photos melt into the dark footer */}
     <div
-      className="h-32 md:h-48 -mt-32 md:-mt-48 relative z-10 pointer-events-none"
+      className="h-48 md:h-72 -mt-48 md:-mt-72 relative z-10 pointer-events-none"
       style={{
-        background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 60%, #0A1A12 100%)",
+        background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 40%, hsl(var(--background)) 65%, #0A1A12 100%)",
       }}
     />
+
+    {/* Extra breathing room */}
+    <div className="h-24 md:h-40 bg-[#0A1A12]" />
   </section>
 );
 
