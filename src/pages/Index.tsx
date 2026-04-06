@@ -1,19 +1,17 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import VibeSection from "@/components/VibeSection";
-import SnapGrid from "@/components/SnapGrid";
-import Footer from "@/components/Footer";
+import EditorialSplit from "@/components/EditorialSplit";
+import IGGrid from "@/components/IGGrid";
+import SiteFooter from "@/components/SiteFooter";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background noise-bg">
-      <Navbar />
-      <Hero />
-      <VibeSection />
-      <SnapGrid />
-      <Footer />
-    </div>
-  );
-};
+const Index = () => (
+  <div className="min-h-screen bg-background">
+    <Navbar />
+    <Hero />
+    <EditorialSplit />
+    <IGGrid />
+    <SiteFooter />
+  </div>
+);
 
 export default Index;

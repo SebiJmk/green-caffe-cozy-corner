@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,42 +6,39 @@
 
 @layer base {
   :root {
-    --background: 155 18% 3%;
-    --foreground: 40 15% 88%;
+    --background: 38 25% 94%;
+    --foreground: 24 10% 12%;
 
-    --card: 155 12% 6%;
-    --card-foreground: 40 15% 88%;
+    --card: 38 25% 94%;
+    --card-foreground: 24 10% 12%;
 
-    --popover: 155 12% 6%;
-    --popover-foreground: 40 15% 88%;
+    --popover: 38 25% 94%;
+    --popover-foreground: 24 10% 12%;
 
-    --primary: 152 35% 30%;
-    --primary-foreground: 40 15% 95%;
+    --primary: 152 38% 22%;
+    --primary-foreground: 38 25% 94%;
 
-    --secondary: 155 10% 10%;
-    --secondary-foreground: 40 15% 88%;
+    --secondary: 38 15% 90%;
+    --secondary-foreground: 24 10% 12%;
 
-    --muted: 155 8% 12%;
-    --muted-foreground: 40 6% 45%;
+    --muted: 38 12% 88%;
+    --muted-foreground: 24 5% 50%;
 
-    --accent: 42 55% 62%;
-    --accent-foreground: 155 18% 3%;
+    --accent: 38 15% 90%;
+    --accent-foreground: 24 10% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 155 8% 12%;
-    --input: 155 8% 12%;
-    --ring: 152 35% 30%;
-    --radius: 1rem;
+    --border: 38 12% 86%;
+    --input: 38 12% 86%;
+    --ring: 152 38% 22%;
+    --radius: 0.5rem;
 
-    --midnight: 155 18% 3%;
-    --forest: 152 35% 30%;
-    --forest-glow: 152 50% 40%;
-    --brass: 42 55% 62%;
-    --brass-light: 42 45% 75%;
-    --glass-bg: 0 0% 100%;
-    --glass-border: 0 0% 100%;
+    --travertine: 38 25% 94%;
+    --forest: 152 38% 22%;
+    --forest-light: 152 25% 32%;
+    --charcoal: 24 10% 12%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -61,103 +58,8 @@
   h1, h2, h3, h4, h5, h6 { @apply font-serif; }
 }
 
-/* Noise texture */
-.noise-bg {
-  position: relative;
-}
-.noise-bg::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-
 @layer components {
-  /* Glass panels */
-  .glass {
-    background: hsla(0, 0%, 100%, 0.04);
-    border: 1px solid hsla(0, 0%, 100%, 0.08);
-    @apply rounded-2xl backdrop-blur-sm;
-    transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
-  }
-  .glass:hover {
-    background: hsla(0, 0%, 100%, 0.06);
-    border-color: hsla(0, 0%, 100%, 0.12);
-  }
-
-  /* Glassmorphism pill navbar */
-  .glass-pill {
-    background: hsla(0, 0%, 100%, 0.06);
-    border: 1px solid hsla(0, 0%, 100%, 0.12);
-    backdrop-filter: blur(24px) saturate(1.6);
-    @apply rounded-full;
-  }
-
-  /* Nav */
-  .nav-link-glass {
-    @apply text-[11px] font-sans font-medium uppercase tracking-[0.18em];
-    @apply text-foreground/50 hover:text-foreground transition-colors duration-300;
-  }
-
-  .btn-brass-outline {
-    @apply inline-flex items-center justify-center px-5 py-1.5 rounded-full;
-    @apply text-[11px] font-sans font-medium uppercase tracking-[0.15em];
-    border: 1px solid hsl(var(--brass) / 0.4);
-    color: hsl(var(--brass));
-    @apply transition-all duration-400;
-    box-shadow: 0 0 0 0 hsl(var(--brass) / 0);
-  }
-  .btn-brass-outline:hover {
-    border-color: hsl(var(--brass) / 0.7);
-    box-shadow: 0 0 20px -2px hsl(var(--brass) / 0.2);
-    color: hsl(var(--brass-light));
-  }
-
-  /* Section labels */
-  .section-label {
-    @apply text-[10px] font-sans uppercase tracking-[0.35em] mb-5 block font-medium;
-    color: hsl(var(--brass));
-  }
-
-  .section-heading {
-    @apply font-serif font-normal leading-[1.08] tracking-tight text-foreground;
-  }
-
-  /* Gradient text */
-  .text-gradient-forest {
-    background: linear-gradient(135deg, hsl(var(--forest-glow)), hsl(var(--brass)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-brass { color: hsl(var(--brass)); }
-  .text-brass-light { color: hsl(var(--brass-light)); }
-
-  /* Glow button */
-  .btn-glow {
-    @apply inline-flex items-center justify-center rounded-full font-sans text-xs font-medium tracking-[0.12em] uppercase;
-    @apply px-7 py-3;
-    background: hsl(var(--forest));
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 0 24px hsla(152, 50%, 40%, 0.15);
-    @apply transition-all duration-500;
-  }
-  .btn-glow:hover {
-    box-shadow: 0 0 40px hsla(152, 50%, 40%, 0.3), 0 0 80px hsla(152, 50%, 40%, 0.08);
-    background: hsl(var(--forest-glow));
-  }
-
-  /* Warm/cool glows for bento */
-  .glow-warm {
-    box-shadow: inset 0 0 80px -20px hsla(30, 80%, 50%, 0.06), 0 0 40px -10px hsla(30, 80%, 50%, 0.04);
-  }
-  .glow-cool {
-    box-shadow: inset 0 0 80px -20px hsla(152, 50%, 40%, 0.06), 0 0 40px -10px hsla(152, 50%, 40%, 0.04);
+  .label-editorial {
+    @apply text-[10px] font-sans font-medium uppercase tracking-[0.3em] text-muted-foreground;
   }
 }
