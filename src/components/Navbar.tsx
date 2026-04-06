@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import logo from "@/assets/green-caffe-logo.png";
 
 const links = [
@@ -9,23 +10,28 @@ const links = [
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const heroRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
+    heroRef.current = document.getElementById("home");
   }, []);
 
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 0.85], [1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0.5, 0.85], [0, -32]);
+
   return (
-    <nav
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-700 ${
-        scrolled ? "bg-background/80 backdrop-blur-md" : "bg-transparent"
-      }`}
+    <motion.nav
+      style={{ opacity, y }}
+      className="fixed top-0 inset-x-0 z-50 pointer-events-none"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-6 md:px-10">
-        {/* Logo — prominent branding */}
+      <div className="pointer-events-auto max-w-7xl mx-auto flex items-center justify-between h-20 px-6 md:px-10">
+        {/* Logo */}
         <a href="#home" className="shrink-0 flex items-center gap-3" data-cursor-hover>
           <img
             src={logo}
@@ -66,7 +72,7 @@ const Navbar = () => {
       </div>
 
       {open && (
-        <div className="md:hidden bg-background px-6 pb-6 pt-2 border-t border-border">
+        <div className="pointer-events-auto md:hidden bg-background px-6 pb-6 pt-2 border-t border-border">
           {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block py-3 label-editorial text-sm">
               {l.label}
@@ -77,7 +83,7 @@ const Navbar = () => {
           </a>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

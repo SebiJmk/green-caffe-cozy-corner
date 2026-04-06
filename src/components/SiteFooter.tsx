@@ -61,7 +61,7 @@ const SiteFooter = () => {
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#0A1A12] via-transparent to-[#0A1A12]/40" />
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0A1A12]/30 via-transparent to-[#0A1A12]/30" />
 
-          {/* Floating directions */}
+          {/* Floating directions pill */}
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
             <MagneticWrap strength={0.25}>
               <a
@@ -83,7 +83,7 @@ const SiteFooter = () => {
           </div>
         </motion.div>
 
-        {/* ── Contact Console ── */}
+        {/* ── Concierge Console (glassmorphism, floating over map) ── */}
         <div className="relative z-10 -mt-16 md:-mt-24 max-w-5xl mx-auto px-6 md:px-10">
           <Reveal>
             <div className="bg-[#0A1A12]/80 backdrop-blur-2xl border border-[#F4F1EA]/10 rounded-sm p-8 md:p-14">
