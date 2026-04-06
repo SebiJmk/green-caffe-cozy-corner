@@ -1,21 +1,34 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/Reveal";
 import coffeeImg from "@/assets/coffee-crema-macro.jpg";
 import wineImg from "@/assets/wine-minimalist.jpg";
+
+const ParallaxImage = ({ src, alt }: { src: string; alt: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  return (
+    <div ref={ref} className="overflow-hidden h-full min-h-[50vh] md:min-h-full">
+      <motion.img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        width={900}
+        height={1200}
+        style={{ y }}
+        className="w-full h-[120%] object-cover"
+      />
+    </div>
+  );
+};
 
 const EditorialSplit = () => (
   <>
     {/* Coffee — image left, text right */}
     <section id="coffee" className="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
-      <Reveal className="overflow-hidden">
-        <img
-          src={coffeeImg}
-          alt="Specialty coffee crema macro texture"
-          loading="lazy"
-          width={900}
-          height={1200}
-          className="w-full h-full min-h-[50vh] md:min-h-full object-cover"
-        />
-      </Reveal>
+      <ParallaxImage src={coffeeImg} alt="Specialty coffee crema macro texture" />
 
       <Reveal className="flex items-center px-10 md:px-16 lg:px-24 py-16 md:py-0">
         <div className="max-w-sm">
@@ -54,16 +67,9 @@ const EditorialSplit = () => (
         </div>
       </Reveal>
 
-      <Reveal className="overflow-hidden order-1 md:order-2">
-        <img
-          src={wineImg}
-          alt="Minimalist glass of red wine on stone"
-          loading="lazy"
-          width={900}
-          height={1200}
-          className="w-full h-full min-h-[50vh] md:min-h-full object-cover"
-        />
-      </Reveal>
+      <div className="order-1 md:order-2">
+        <ParallaxImage src={wineImg} alt="Minimalist glass of red wine on stone" />
+      </div>
     </section>
   </>
 );
