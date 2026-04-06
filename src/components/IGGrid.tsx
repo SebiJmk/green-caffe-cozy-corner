@@ -20,7 +20,7 @@ const images = [
 ];
 
 const IGGrid = () => (
-  <section className="py-24 md:py-32">
+  <section className="pt-24 md:pt-32 pb-0">
     <Reveal>
       <p className="label-editorial text-center mb-16">Live from the Shop</p>
     </Reveal>
@@ -48,6 +48,14 @@ const IGGrid = () => (
         ))}
       </div>
     </Reveal>
+
+    {/* Organic fade-out: photos melt into the dark footer */}
+    <div
+      className="h-32 md:h-48 -mt-32 md:-mt-48 relative z-10 pointer-events-none"
+      style={{
+        background: "linear-gradient(to bottom, transparent 0%, hsl(var(--background)) 60%, #0A1A12 100%)",
+      }}
+    />
   </section>
 );
 
