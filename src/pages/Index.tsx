@@ -5,9 +5,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Noise texture overlay */}
-      <div className="noise-overlay" />
+    <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <VibeSection />

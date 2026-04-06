@@ -1,112 +1,107 @@
 import Reveal from "@/components/Reveal";
-import { Coffee, Wine } from "lucide-react";
-import coffeeDark from "@/assets/coffee-dark.jpg";
-import wineDark from "@/assets/wine-dark.jpg";
+import { Coffee, Wine, Leaf } from "lucide-react";
+import coffeeImg from "@/assets/coffee-crema-macro.jpg";
+import wineImg from "@/assets/wine-minimalist.jpg";
 
 const VibeSection = () => {
   return (
     <>
-      {/* About */}
-      <section id="about" className="py-32 md:py-44 relative">
-        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
+      {/* About — soft sage background */}
+      <section id="about" className="py-28 md:py-36 bg-sage">
+        <div className="container mx-auto px-6 md:px-8">
           <Reveal>
-            <div className="text-center">
+            <div className="max-w-3xl mx-auto text-center">
               <span className="section-label">About</span>
-              <h2 className="section-heading text-3xl md:text-5xl lg:text-6xl mb-10">
-                Where morning ritual
+              <h2 className="section-heading text-3xl md:text-5xl lg:text-[3.5rem] mb-8">
+                Where the ritual of morning
                 <br />
-                <span className="text-champagne italic">meets evening elegance</span>
+                <em className="italic">meets the calm of evening</em>
               </h2>
-              <p className="text-muted-foreground font-sans text-base md:text-lg leading-[2] max-w-2xl mx-auto">
-                Green Caffé lives in two worlds. By day, a specialty coffee sanctuary — single-origin
-                beans, pour-overs, and the quiet hum of focused minds. By night, the lights dim,
-                candles flicker, and we become Bucharest's most intimate wine bar.
-                Same soul, different rhythm.
+              <p className="text-muted-foreground font-sans text-base md:text-lg leading-[1.9] max-w-xl mx-auto">
+                Nestled beside the lush Cișmigiu Gardens, Green Caffé is a sanctuary
+                for those who appreciate the slow craft of specialty coffee and
+                the quiet elegance of a curated glass of wine. Two moods, one soul —
+                where Bucharest breathes.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* The Vibe — Bento Grid */}
-      <section id="vibe" className="py-24 md:py-36">
-        <div className="container mx-auto px-6 md:px-8 max-w-6xl">
+      {/* The Vibe — asymmetric cards */}
+      <section id="vibe" className="py-28 md:py-36 bg-background">
+        <div className="container mx-auto px-6 md:px-8">
           <Reveal>
             <span className="section-label">The Vibe</span>
-            <h2 className="section-heading text-3xl md:text-5xl lg:text-6xl mb-14">
-              Two moods.{" "}
-              <span className="text-champagne italic">One soul.</span>
+            <h2 className="section-heading text-3xl md:text-5xl lg:text-[3.5rem] mb-16 max-w-lg">
+              Two moods.
+              <br />
+              <em className="italic text-primary">One soul.</em>
             </h2>
           </Reveal>
 
-          {/* Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
-            {/* Coffee — large card */}
+          {/* Asymmetric grid */}
+          <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-start">
+            {/* Coffee card — larger */}
             <Reveal className="md:col-span-7" direction="left">
-              <div className="glass-card overflow-hidden group h-full">
-                <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="card-premium group">
+                <div className="relative overflow-hidden aspect-[4/3]">
                   <img
-                    src={coffeeDark}
-                    alt="Specialty coffee latte art"
+                    src={coffeeImg}
+                    alt="Specialty coffee crema macro texture"
                     loading="lazy"
-                    width={800}
-                    height={800}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                    width={900}
+                    height={1200}
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Coffee size={16} className="text-champagne" />
-                      <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-champagne">
-                        Daytime Focus
-                      </span>
-                    </div>
-                    <h3 className="font-serif text-2xl md:text-3xl text-foreground">
-                      Specialty Coffee
-                    </h3>
-                  </div>
                 </div>
-                <div className="p-6 md:p-8">
-                  <p className="text-muted-foreground font-sans text-sm leading-[1.9]">
-                    Single-origin Ethiopian and Colombian beans, brewed with precision.
-                    Pour-overs, espressos, and the quiet focus of a morning ritual.
-                    Every cup is an invitation to slow down and think clearly.
+                <div className="p-7 md:p-9">
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <Coffee size={16} className="text-primary" />
+                    <span className="text-[11px] font-sans uppercase tracking-[0.2em] text-primary font-medium">
+                      Daytime · Focus
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-foreground font-light mb-3">
+                    Specialty Coffee
+                  </h3>
+                  <p className="text-muted-foreground font-sans text-sm leading-[1.8]">
+                    Single-origin beans sourced from Ethiopian and Colombian farms,
+                    brewed with precision. Pour-overs, espressos, and flat whites
+                    — each cup an invitation to slow down and think clearly.
                   </p>
                 </div>
               </div>
             </Reveal>
 
-            {/* Right column — stacked */}
-            <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
+            {/* Right column */}
+            <div className="md:col-span-5 flex flex-col gap-6 md:gap-8 md:mt-16">
               {/* Wine card */}
               <Reveal direction="right">
-                <div className="glass-card overflow-hidden group">
-                  <div className="relative aspect-[16/12] overflow-hidden">
+                <div className="card-premium group">
+                  <div className="relative overflow-hidden aspect-square">
                     <img
-                      src={wineDark}
-                      alt="Wine glass in candlelight"
+                      src={wineImg}
+                      alt="Minimalist glass of red wine on stone"
                       loading="lazy"
-                      width={800}
-                      height={800}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                      width={900}
+                      height={1200}
+                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                    <div className="absolute bottom-5 left-5 right-5">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Wine size={16} className="text-champagne" />
-                        <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-champagne">
-                          Evening Unwind
-                        </span>
-                      </div>
-                      <h3 className="font-serif text-xl md:text-2xl text-foreground">
-                        Curated Wines
-                      </h3>
-                    </div>
                   </div>
-                  <div className="p-5 md:p-6">
-                    <p className="text-muted-foreground font-sans text-sm leading-[1.9]">
-                      Romanian Fetească Neagră, European terroirs. Candlelight, conversation,
-                      and a glass that tells a story.
+                  <div className="p-7 md:p-8">
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <Wine size={16} className="text-primary" />
+                      <span className="text-[11px] font-sans uppercase tracking-[0.2em] text-primary font-medium">
+                        Evening · Unwind
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-2xl text-foreground font-light mb-3">
+                      Curated Wines
+                    </h3>
+                    <p className="text-muted-foreground font-sans text-sm leading-[1.8]">
+                      Romanian Fetească Neagră and European terroirs. As the sun sets
+                      behind the gardens, the candles come out and the conversation deepens.
                     </p>
                   </div>
                 </div>
@@ -114,14 +109,18 @@ const VibeSection = () => {
 
               {/* Green accent card */}
               <Reveal direction="right" delay={0.1}>
-                <div className="glass-card p-8 md:p-10 flex flex-col items-center justify-center text-center">
-                  <p className="text-4xl mb-4">💚</p>
-                  <p className="font-serif text-2xl md:text-3xl text-foreground mb-2">
-                    We are <span className="text-gradient-green">Green</span>
-                  </p>
-                  <p className="text-muted-foreground font-sans text-xs tracking-[0.2em] uppercase">
-                    Bucharest · Est. 2019
-                  </p>
+                <div className="card-premium p-8 md:p-10 flex items-center gap-5 bg-sage">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <Leaf size={20} className="text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-serif text-xl text-foreground font-medium">
+                      We are <span className="text-primary">Green</span> 💚
+                    </p>
+                    <p className="text-muted-foreground font-sans text-xs mt-1">
+                      Next to Cișmigiu Gardens · Bucharest
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             </div>
