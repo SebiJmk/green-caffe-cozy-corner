@@ -3,27 +3,29 @@ import { Camera } from "lucide-react";
 
 const SnapGrid = () => {
   return (
-    <section className="py-24 md:py-32 bg-sage">
-      <div className="container mx-auto px-6 md:px-8">
+    <section className="py-24 md:py-36">
+      <div className="container mx-auto px-6 md:px-8 max-w-5xl">
         <Reveal>
           <div className="text-center mb-14">
-            <span className="section-label">Instagram</span>
-            <h2 className="section-heading text-3xl md:text-4xl lg:text-5xl mb-3">
-              Snapshots
+            <span className="section-label">#Snapshots</span>
+            <h2 className="section-heading text-3xl md:text-5xl lg:text-6xl mb-4">
+              #SNAPSHOTS
             </h2>
-            <p className="text-muted-foreground font-sans text-sm max-w-md mx-auto">
-              Concept de feed — An ideal display of your real-time community.
+            <p className="text-muted-foreground font-sans text-xs md:text-sm tracking-[0.12em] max-w-lg mx-auto leading-relaxed">
+              An ideal display of your real-time community feed.
+            </p>
+            <p className="text-brass/60 font-sans text-[10px] tracking-[0.2em] uppercase mt-2">
+              Integrate your Instagram feed here.
             </p>
           </div>
         </Reveal>
 
-        {/* Grid */}
         <Reveal>
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative">
             {/* Floating label */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-card px-5 py-2 rounded-full shadow-sm">
-              <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-muted-foreground font-medium whitespace-nowrap">
-                Visual Placeholder for Live Feed
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 glass-pill px-5 py-2">
+              <p className="text-[9px] font-sans uppercase tracking-[0.2em] text-brass/70 font-medium whitespace-nowrap">
+                Visual Placeholder for the Upcoming Live IG Feed
               </p>
             </div>
 
@@ -31,9 +33,9 @@ const SnapGrid = () => {
               {Array.from({ length: 9 }).map((_, i) => (
                 <div
                   key={i}
-                  className="aspect-square rounded-xl bg-foreground/[0.03] border border-foreground/[0.04] flex items-center justify-center transition-colors duration-300 hover:bg-foreground/[0.06]"
+                  className="glass aspect-square flex items-center justify-center hover:bg-foreground/[0.04]"
                 >
-                  <Camera size={20} className="text-foreground/15" />
+                  <Camera size={20} className="text-foreground/10" />
                 </div>
               ))}
             </div>
