@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['Cinzel', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
@@ -23,13 +23,15 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        cream: "hsl(var(--cream))",
+        midnight: "hsl(var(--midnight))",
         forest: {
           DEFAULT: "hsl(var(--forest))",
-          light: "hsl(var(--forest-light))",
+          glow: "hsl(var(--forest-glow))",
         },
-        "warm-stone": "hsl(var(--warm-stone))",
-        "slate-text": "hsl(var(--slate-text))",
+        champagne: {
+          DEFAULT: "hsl(var(--champagne))",
+          light: "hsl(var(--champagne-light))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

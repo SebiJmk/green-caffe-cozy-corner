@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,41 +6,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
+    --background: 150 18% 4%;
+    --foreground: 40 20% 90%;
 
-    --card: 40 30% 97%;
-    --card-foreground: 210 11% 15%;
+    --card: 150 12% 7%;
+    --card-foreground: 40 20% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover: 150 12% 7%;
+    --popover-foreground: 40 20% 90%;
 
-    --primary: 152 38% 22%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 152 35% 28%;
+    --primary-foreground: 40 20% 95%;
 
-    --secondary: 40 25% 95%;
-    --secondary-foreground: 210 11% 15%;
+    --secondary: 150 10% 12%;
+    --secondary-foreground: 40 20% 85%;
 
-    --muted: 40 15% 94%;
-    --muted-foreground: 210 7% 50%;
+    --muted: 150 8% 14%;
+    --muted-foreground: 40 8% 50%;
 
-    --accent: 40 25% 95%;
-    --accent-foreground: 210 11% 15%;
+    --accent: 40 50% 65%;
+    --accent-foreground: 150 18% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 40 15% 90%;
-    --input: 40 15% 90%;
-    --ring: 152 38% 22%;
+    --border: 150 8% 14%;
+    --input: 150 8% 14%;
+    --ring: 152 35% 28%;
 
     --radius: 0.75rem;
 
-    --cream: 42 40% 97%;
-    --forest: 152 38% 22%;
-    --forest-light: 152 28% 32%;
-    --slate-text: 210 7% 40%;
-    --warm-stone: 35 20% 92%;
+    --midnight: 150 18% 4%;
+    --forest: 152 35% 28%;
+    --forest-glow: 152 50% 35%;
+    --champagne: 40 50% 65%;
+    --champagne-light: 40 40% 80%;
+    --glass: 0 0% 100%;
+    --glass-border: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -71,33 +73,115 @@
   }
 }
 
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
 @layer components {
-  .nav-link {
-    @apply relative text-sm font-sans font-medium tracking-wide uppercase;
-    @apply text-foreground/60 hover:text-foreground transition-colors duration-300;
+  /* Floating pill navbar */
+  .floating-pill {
+    @apply fixed top-5 left-1/2 -translate-x-1/2 z-50;
+    @apply rounded-full px-3 py-2;
+    background: hsla(0, 0%, 100%, 0.92);
+    backdrop-filter: blur(20px) saturate(1.8);
+    box-shadow:
+      0 4px 30px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
-  .nav-link::after {
+  .nav-link-dark {
+    @apply relative text-xs font-sans font-medium tracking-[0.15em] uppercase;
+    @apply text-neutral-500 hover:text-neutral-900 transition-colors duration-300;
+  }
+
+  .nav-link-dark::after {
     content: '';
-    @apply absolute left-0 -bottom-1 w-full h-px bg-primary;
+    @apply absolute left-1 right-1 -bottom-0.5 h-px;
+    background: hsl(var(--forest));
     @apply scale-x-0 origin-right transition-transform duration-300;
   }
 
-  .nav-link:hover::after {
+  .nav-link-dark:hover::after {
     @apply scale-x-100 origin-left;
   }
 
-  .btn-cta {
-    @apply inline-flex items-center justify-center px-7 py-2.5 rounded-full;
-    @apply bg-primary text-primary-foreground font-sans text-sm font-medium tracking-wide;
-    @apply hover:bg-forest-light transition-colors duration-300;
+  .btn-find {
+    @apply inline-flex items-center justify-center px-5 py-1.5 rounded-full;
+    @apply text-xs font-sans font-medium tracking-[0.12em] uppercase;
+    background: hsl(var(--forest));
+    color: hsl(var(--primary-foreground));
+    @apply hover:shadow-[0_0_20px_hsla(152,50%,35%,0.4)] transition-all duration-300;
   }
 
+  /* Glass card */
+  .glass-card {
+    background: hsla(0, 0%, 100%, 0.04);
+    border: 1px solid hsla(0, 0%, 100%, 0.08);
+    @apply rounded-2xl backdrop-blur-sm;
+  }
+
+  .glass-card:hover {
+    background: hsla(0, 0%, 100%, 0.06);
+    border-color: hsla(0, 0%, 100%, 0.12);
+  }
+
+  /* Section labels */
   .section-label {
-    @apply text-xs font-sans uppercase tracking-[0.25em] text-muted-foreground mb-4 block;
+    @apply text-[10px] font-sans uppercase tracking-[0.35em] mb-5 block;
+    color: hsl(var(--champagne));
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-light text-foreground leading-tight;
+    @apply font-serif font-normal leading-[1.1] tracking-tight;
+    color: hsl(var(--foreground));
+  }
+
+  /* Gradient text */
+  .text-gradient-green {
+    background: linear-gradient(135deg, hsl(var(--forest-glow)), hsl(var(--champagne)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-champagne {
+    color: hsl(var(--champagne));
+  }
+
+  .text-champagne-light {
+    color: hsl(var(--champagne-light));
+  }
+
+  /* Glow button */
+  .btn-glow {
+    @apply inline-flex items-center justify-center rounded-full font-sans text-sm font-medium tracking-[0.1em] uppercase;
+    @apply px-8 py-3.5;
+    background: hsl(var(--forest));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 0 30px hsla(152, 50%, 35%, 0.15);
+    @apply transition-all duration-500;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 50px hsla(152, 50%, 35%, 0.35), 0 0 100px hsla(152, 50%, 35%, 0.1);
+    background: hsl(var(--forest-glow));
+  }
+
+  /* Scroll indicator */
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(8px); }
+  }
+
+  .scroll-indicator {
+    animation: scroll-pulse 2s ease-in-out infinite;
   }
 }
